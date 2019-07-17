@@ -1,39 +1,19 @@
 import * as vscode from 'vscode';
+import { ServerListener } from './server-listener';
+
+export interface SelectorResult {
+    fileName: string;
+    type: string;
+    selector: string | null;
+    message: string;
+}
 
 export class ProjectChecker {
-
-    constructor() {
-        this.onFileOpen();
-    }
-
     languageList = ['scss', 'css'];
-
-    // onTextChange() {
-    // vscode.workspace.onDidChangeTextDocument((event) => {
-    // 	console.log("event", event);
-    // 	const language = event.document.languageId;
-    // 	if (this.languageList.includes(event.document.languageId)) {
-    // 		console.log(`Nice, we will track this ${language} file`);
-    // 	} else {
-    // 		console.log(`Ops, ${language} file should not track`);
-    // 	}
-    // });
-    // }
-
-
-
-    onFileOpen() {
-        console.log("onFileopen track");
-        vscode.workspace.onDidOpenTextDocument((event) => {
-            const language = event.languageId;
-            if (this.languageList.includes(event.languageId)) {
-                console.log("event", language, event);
-                console.log(`Nice, we will track this ${language} file`);
-                this.checkAngularFileType(event.fileName);
-            } else {
-                // console.log(`Ops, ${language} file should not track`);
-            }
-        });
+    constructor(
+        // public serverListener: ServerListener
+    ) {
+        this.onFileOpen();
     }
 
     getInfo() {
@@ -48,42 +28,58 @@ export class ProjectChecker {
         if (isAngular) { console.log("this is angular project", isAngular); }
     }
 
-    async checkAngularFileType(fileName: string) {
-        const fileExt = fileName.split('.')[fileName.split('.').length - 1];
-        const componentOrDirective = fileName.includes('.component.') || fileName.includes('.directive.');
-        console.log(`component ${fileName.includes('.component.')} directive ${fileName.includes('.directive.')} result ${componentOrDirective}`);
 
-        if (componentOrDirective) {
-            // console.log("this is component or directive file")
-            fileName = fileName.replace(fileExt, 'ts');
-            var openPath = vscode.Uri.parse("file:///" + fileName); //A request file path
-            const doc = await vscode.workspace.openTextDocument(openPath);
-            // vscode.window.showTextDocument(doc); // this will open in editor
-            const data = doc.getText();
-            // console.log("data", data);
-            const searchList = (/(?:.*selector.*)(?:'|")(.*)(?:'|")(?:,)/g).exec(data);
-            if (searchList && searchList.length) {
-                const selector = searchList[1];
-                // console.log('searched selector', selector);
-                return {
-                    fileName,
-                    type: 'selectorStyle',
-                    selector: selector,
-                };
+    onFileOpen() {
+        console.log("onFileopen track");
+        vscode.workspace.onDidOpenTextDocument(async (event) => {
+            const language = event.languageId;
+            if (this.languageList.includes(event.languageId)) {
+                // console.log("event", language, event);
+                const fileResult = await this.checkAngularFileType(event.fileName);
+                console.log(`onFileopen, we will track this ${language} file, ${fileResult}`);
             } else {
-                // console.log("sorry, cannot find selector");
-                return {
-                    fileName,
-                    type: 'selectorStyle',
-                    selector: null,
-                    message: `sorry, cannot find selector`
-                };
+                // console.log(`Ops, ${language} file should not track`);
             }
-        }
+        });
+    }
+
+    private resultGenerator(fileName: string, type: string = 'basicStyle', selector: any = null, message = '') {
         return {
             fileName,
-            type: 'basicStyle',
-            selector: null
+            type: type,
+            selector: selector,
+            message
         };
+    }
+
+    async checkAngularFileType(fileName: string) {
+        const componentOrDirective = fileName.includes('.component.') || fileName.includes('.directive.');
+        if (componentOrDirective) {
+            return await this.selectorParser(fileName);
+        } else {
+            return await this.resultGenerator(fileName);
+        }
+
+        
+    }
+
+    private async selectorParser(fileName: string) {
+        const doc = await vscode.workspace.openTextDocument(this.getTSFilePath(fileName));
+        // vscode.window.showTextDocument(doc); // this will open in editor
+        const data = doc.getText();
+        const searchList = (/(?:.*selector.*)(?:'|")(.*)(?:'|")(?:,)/g).exec(data);
+        if (searchList && searchList.length) {
+            const selector = searchList[1];
+            return this.resultGenerator(fileName, 'selectorStyle', selector);
+        } else {
+            return this.resultGenerator(fileName, 'selectorStyle', null, `sorry, cannot find selector`);
+        }
+    }
+
+    private getTSFilePath(fileName: string) {
+        const fileExt = fileName.split('.')[fileName.split('.').length - 1];
+        fileName = fileName.replace(fileExt, 'ts');
+        var openPath = vscode.Uri.parse("file:///" + fileName); //A request file path
+        return openPath;
     }
 }

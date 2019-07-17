@@ -1,3 +1,8 @@
+- [x] everytime open file, add selector to fileLibrary. 
+- [x] get file extension and it's selector.
+- [ ] if have selector add selector to style data.
+- [ ] transfer style data to web.
+
 # fast-style README
 
 This is the README for your extension "fast-style". After writing up a brief description, we recommend including the following sections.

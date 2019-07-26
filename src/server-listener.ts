@@ -14,7 +14,8 @@ export class ServerListener {
         this.app = express();
         this.app.use(cors());
         this.server = new http.Server(this.app);
-        this.io = socketio(this.server);
+        
+        this.io = socketio(this.server, { serveClient: false });
         this.startServer();
     }
 

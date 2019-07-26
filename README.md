@@ -41,15 +41,9 @@ This extension contributes the following settings:
 ## Release Notes
 
 <!-- Users appreciate release notes as you update your extension. -->
-
-### 0.0.1
-
-Initial release of Snap Style
--  everytime open file, add selector to fileLibrary. 
--  get file extension and it's selector.
--  if have selector add selector to style data.
--  transfer style data to web.
-
+## [0.0.2] - 2017-07-27
+### Changed
+- use webpack bundle more correctly to work with socket and express.
 
 ## Implement Process
 

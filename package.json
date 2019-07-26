@@ -1,7 +1,8 @@
 {
-	"name": "fast-style",
-	"displayName": "fast-style",
-	"description": "fast style allow quickly edit style for angular or basic html app",
+	"name": "snap-style",
+	"displayName": "Snap Style",
+	"publisher": "hiepxanh",
+	"description": "Realtime editing style in a snap!",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.36.0"
@@ -12,43 +13,46 @@
 	"activationEvents": [
 		"*"
 	],
-	"main": "./out/extension.js",
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#C80000",
+		"theme": "dark"
+	},
+	"homepage": "https://github.com/xanhtool/snap-style-vscode/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/xanhtool/snap-style-vscode/issues",
+		"email": "hiepxanh@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/xanhtool/snap-style-vscode.git"
+	},
+	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
-			},
-			{
-				"command": "extension.comment",
-				"title": "Comment current line"
-			},
-			{
 				"command": "extension.trakingUserInput",
-				"title": "Tracking user input"
-			},
-			{
-				"command": "extension.sendCode",
-				"title": "Sending Code To Server"
-			},
-			{
-				"command": "extension.getInfo",
-				"title": "Get File Info"
+				"title": "Start tracking user input"
 			}
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile",
-		"test": "node ./out/test/runTest.js"
+		"package": "npx vsce package",
+		"publish": "npx vsce publish",
+		"vscode:prepublish": "webpack --mode production",
+		"compile": "webpack --mode none",
+		"watch": "webpack --mode none --watch",
+		"tsc-compile": "tsc -p ./",
+		"tsc-watch": "tsc -watch -p ./",
+		"postinstall": "node node_modules/vscode/bin/install",
+		"just-test": "node node_modules/vscode/bin/test",
+		"test-compile": "npm run tsc-compile && npm run compile",
+		"test": "npm run test-compile && node node_modules/vscode/bin/test"
 	},
 	"dependencies": {
 		"connect": "^3.7.0",
 		"cors": "latest",
 		"express": "^4.17.1",
-		"node-sass": "^4.12.0",
 		"rxjs": "^6.5.2",
 		"sass.js": "^0.11.0",
 		"socket.io": "^2.2.0"
@@ -64,8 +68,11 @@
 		"@types/vscode": "^1.36.0",
 		"glob": "^7.1.4",
 		"mocha": "^6.1.4",
+		"ts-loader": "^6.0.4",
 		"tslint": "^5.12.1",
 		"typescript": "^3.5.3",
-		"vscode-test": "^1.0.0-next.0"
+		"vscode-test": "^1.0.0-next.0",
+		"webpack": "^4.37.0",
+		"webpack-cli": "^3.3.6"
 	}
 }

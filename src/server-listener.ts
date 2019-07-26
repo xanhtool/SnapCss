@@ -19,7 +19,7 @@ export class ServerListener {
     }
 
     startServer() {
-        console.log("kick start server");
+        // console.log("kick start server");
         // whenever a user connects on port 3000 via
         // a websocket, log that a user has connected
         this.io.on("connection", (socket: socketio.Socket) => {
@@ -40,15 +40,10 @@ export class ServerListener {
     // listenForAngularSelectorId(selectorSocket: socketio.Namespace): Promise<string | null> {
     listenForAngularSelectorId(): Promise<string | null> {
         return new Promise(resolve => {
-            // console.log("trigger selectorResult waiter...");
-            // selectorSocket.once('selectorResult', (message: any) => {
-            //     console.log("selectorResult", message);
-            //     resolve(message);
-            // });
             if (this.currentSocket) {
-                console.log("start wait: trigger selectorResult waiter...");
+                // console.log("start wait: trigger selectorResult waiter...");
                 this.currentSocket.once('selectorResult', (message: any) => {
-                    console.log("selectorResult", message);
+                    // console.log("selectorResult", message);
                     resolve(message);
                 });
             } else {
@@ -60,12 +55,8 @@ export class ServerListener {
     async requestAngularAtribute(selectorResult: SelectorResult) {
         const checker = selectorResult.selector;
         if (checker) {
-            // console.log("requesting...", checker, selectorResult.selector, this.io);
-            // console.log("this.currentSocket", this.currentSocket);
-            // const selectorSocket = this.io.emit('selectorRequest', selectorResult.selector);
-            // return await this.listenForAngularSelectorId(selectorSocket);
             if (this.currentSocket) {
-                console.log('good, sending selector request', selectorResult.selector);
+                // console.log('good, sending selector request', selectorResult.selector);
                 const selectorSocket = this.currentSocket.emit('selectorRequest', selectorResult.selector);
                 // console.log("selectorSocket", selectorSocket);
                 return await this.listenForAngularSelectorId();

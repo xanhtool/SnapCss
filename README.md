@@ -1,27 +1,29 @@
-- [x] everytime open file, add selector to fileLibrary. 
-- [x] get file extension and it's selector.
-- [ ] if have selector add selector to style data.
-- [ ] transfer style data to web.
 
-# fast-style README
 
-This is the README for your extension "fast-style". After writing up a brief description, we recommend including the following sections.
+# Snap Style! 
+
+![feature X](images/logo-text.png)
+
+Realtime editing style in a snap!
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Imagine no more file saving or page reloading just to see how single update affects web page, realtime update style in browser immediately, as you type... How many time you can save? how fast we can build our application?
 
-For example if there is an image subfolder under your extension project workspace:
+No need to waiting for JS framework build time to see your new style apply. Just type your new style and see the magic happen. 
 
-\!\[feature X\]\(images/feature-x.png\)
+Base on this idea [Livestyle](http://livestyle.io/). I'm writing an extension for VS code and Chrome that can help Angular developer (or frontend developer) can style faster. It call *Snap Style* that can updates CSS in browser immediately, as you type. No more file saving or page reloading just to see how single update affects web page.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+
+![feature X](images/snap-show.gif)
+
+<!-- > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+you need install [Chrome](https://www.google.com/chrome/) and [my chrome extension](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh) for this plugin to work with.
 
-## Extension Settings
+<!-- ## Extension Settings
 
 Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
@@ -30,29 +32,40 @@ For example:
 This extension contributes the following settings:
 
 * `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* `myExtension.thing`: set to `blah` to do something -->
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+<!-- Calling out known issues can help limit users opening duplicate issues against your extension. -->
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+<!-- Users appreciate release notes as you update your extension. -->
 
-### 1.0.0
+### 0.0.1
 
-Initial release of ...
+Initial release of Snap Style
+-  everytime open file, add selector to fileLibrary. 
+-  get file extension and it's selector.
+-  if have selector add selector to style data.
+-  transfer style data to web.
 
-### 1.0.1
 
-Fixed issue #.
+## Implement Process
 
-### 1.1.0
+- [x] normal html/css website
+- [x] Angular 2+
+- [x] Ionic Angular
+- [ ] Ionic Stencil
+- [ ] React
+- [ ] VueJS
+- [ ] .NET
+- [ ] PHP (lavarel)
+- [ ] Wordpress
 
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
+## Note
+Give me the feedback, your request framework or new feature in [here](https://github.com/xanhtool/snap-style-vscode/issues) or email me: hiepxanh@gmail.com 
+<!-- -----------------------------------------------------------------------------------------------------------
 
 ## Working with Markdown
 
@@ -67,4 +80,4 @@ Added features X, Y, and Z.
 * [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
-**Enjoy!**
+**Enjoy!** -->

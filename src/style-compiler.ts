@@ -27,15 +27,6 @@ export class StyleCompiler {
         Sass.options(this.options);
     }
 
-    // sass(scssString: string):Promise<sass.Result> {
-    //     return new Promise(resolve => {
-    //         var result = sass.renderSync({
-    //             data: scssString
-    //         });
-    //         resolve(result as sass.Result);
-    //     });
-    // }
-
     complieSass(scssString: string): Promise<StyleResult> {
         return new Promise(resolve => {
             Sass.compile(scssString,this.options, function (result: any) {

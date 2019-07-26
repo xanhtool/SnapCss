@@ -25,7 +25,9 @@ export class ProjectChecker {
 
     workSpaceTrack() {
         const isAngular = vscode.workspace.findFiles('angular.json');
-        if (isAngular) { console.log("this is angular project", isAngular); }
+        if (isAngular) { 
+            console.log("this is angular project", isAngular); 
+        }
     }
 
 

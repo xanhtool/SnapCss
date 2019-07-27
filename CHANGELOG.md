@@ -12,11 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.2] - 2017-07-27
+## [0.0.3] - 2017-07-27
+### Added
+- project now allow multi workspace Snap Style enable.
+
+## [0.0.2] - 2017-07-26
 ### Changed
 - use webpack bundle more correctly to work with socket and express.
 
-## [0.0.1] - 2017-07-27
+## [0.0.1] - 2017-07-26
 ### Added
 Initial release of Snap Style
 -  everytime open file, add selector to fileLibrary. 

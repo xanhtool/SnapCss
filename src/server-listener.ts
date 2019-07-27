@@ -4,7 +4,7 @@ import * as http from 'http';
 import * as express from 'express';
 import * as cors from 'cors';
 import { SelectorResult } from "./project-checker";
-
+import * as vscode from 'vscode';
 export class ServerListener {
     app: any;
     io: socketio.Server;
@@ -14,16 +14,23 @@ export class ServerListener {
         this.app = express();
         this.app.use(cors());
         this.server = new http.Server(this.app);
-        
         this.io = socketio(this.server, { serveClient: false });
+        this.socketOnConnection();
         this.startServer();
+        this.projectHomePath();
     }
 
-    startServer() {
-        // console.log("kick start server");
-        // whenever a user connects on port 3000 via
-        // a websocket, log that a user has connected
-        this.io.on("connection", (socket: socketio.Socket) => {
+    projectHomePath() {
+        this.app.get("/", (req: express.Request, res: express.Response) => {
+            res.send({
+                workspaceName: vscode.workspace.name
+            });
+        });
+
+    }
+
+    socketOnConnection() {
+          this.io.on("connection", (socket: socketio.Socket) => {
             this.currentSocket = socket;
             // console.log("a user connected", socket);
             // socket.on("message", (message: any) => {
@@ -32,11 +39,22 @@ export class ServerListener {
             //     socket.emit("message", 'Server:' + message);
             // });
         });
-
-
-
-        this.io.listen(1995);
     }
+
+    startServer(port = 1995) {
+        this.server.listen(port).on('error', (error:{errno:string, code:any, syscall:any, address:any, port:any}) => {
+            if (error.errno === 'EADDRINUSE') {
+                console.log(`[${error.errno}] port ${error.port} is busy`);
+                this.startServer(port + 1);
+            } else {
+                console.log('server error', error);
+            }
+        })
+        .on('listening',() => {
+            console.log('Snap Style magic happen ^_^ on port:', port);
+        });
+    }
+
 
     // listenForAngularSelectorId(selectorSocket: socketio.Namespace): Promise<string | null> {
     listenForAngularSelectorId(): Promise<string | null> {

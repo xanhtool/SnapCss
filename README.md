@@ -16,12 +16,15 @@ Base on this idea [Livestyle](http://livestyle.io/). I'm writing an extension fo
 
 
 ![feature X](images/snap-show.gif)
-
-<!-- > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
+<!-- 
+> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
 ## Requirements
 
-you need install [Chrome](https://www.google.com/chrome/) and [my chrome extension](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh) for this plugin to work with.
+you need install for this plugin to work with:
+- Chrome Browser [HERE](https://www.google.com/chrome/) 
+- My chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh)
+
 
 <!-- ## Extension Settings
 
@@ -38,14 +41,24 @@ This extension contributes the following settings:
 
 <!-- Calling out known issues can help limit users opening duplicate issues against your extension. -->
 
+> why my Console in Chrome browser keep yelling Error:
+`GET http://localhost:1995/socket.io/?EIO=3&transport=polling&t=MmnbD6d net::ERR_CONNECTION_REFUSED` ???
+
+- answer: Because you not open VSCode editor. You just open it and it will shutup or disable Snap Style chrome plugin.
+
 ## Release Notes
 
 <!-- Users appreciate release notes as you update your extension. -->
-## [0.0.2] - 2017-07-27
-### Changed
-- use webpack bundle more correctly to work with socket and express.
+## [0.0.3] - 2017-07-27
+### Added
+- project now allow multi workspace Snap Style enable.
 
-## Implement Process
+## Feature Implement Process
+
+- [x] Webpack bundle to make plugin faster.
+- [x] Multi workspace Snap Style editing.
+
+## Framework Implement Process
 
 - [x] normal html/css website
 - [x] Angular 2+

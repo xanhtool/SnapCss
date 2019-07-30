@@ -6,6 +6,18 @@
 
 Realtime editing style in a snap!
 
+## Requirements
+you need install for this plugin to work with:
+- Chrome Browser [HERE](https://www.google.com/chrome/) 
+- My chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh)
+
+## Install
+1. Open Extensions sideBar panel in Visual Studio Code. View → Extensions
+2. Search for Snap Style
+3. Click Install
+4. Click Reload, if required
+5. install chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh) if you not install yet
+
 ## Features
 
 Imagine no more file saving or page reloading just to see how single update affects web page, realtime update style in browser immediately, as you type... How many time you can save? how fast we can build our application?
@@ -21,11 +33,6 @@ Base on this idea [Livestyle](http://livestyle.io/). I'm writing an extension fo
 <!-- 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
-## Requirements
-
-you need install for this plugin to work with:
-- Chrome Browser [HERE](https://www.google.com/chrome/) 
-- My chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh)
 
 
 <!-- ## Extension Settings

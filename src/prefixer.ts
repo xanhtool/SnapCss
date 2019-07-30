@@ -1,6 +1,6 @@
 export class Prefixer {
        prefixCssSelectors(rules: string, className: string | null) {
-        if (!className) { return rules; }
+        if (!className || !rules) { return rules; }
         var classLen = className.length,
             char, nextChar, isAt, isIn;
 

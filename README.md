@@ -16,6 +16,8 @@ Base on this idea [Livestyle](http://livestyle.io/). I'm writing an extension fo
 
 
 ![feature X](images/snap-show.gif)
+
+[![Snap Style](https://img.youtube.com/vi/t5tsGSFeOK8/0.jpg)](https://www.youtube.com/watch?v=t5tsGSFeOK8 "Snap Style")
 <!-- 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
@@ -49,9 +51,9 @@ This extension contributes the following settings:
 ## Release Notes
 
 <!-- Users appreciate release notes as you update your extension. -->
-## [0.0.3] - 2017-07-27
-### Added
-- project now allow multi workspace Snap Style enable.
+## [0.0.4] - 2017-07-30
+### Fixed
+- project error crash.
 
 ## Feature Implement Process
 

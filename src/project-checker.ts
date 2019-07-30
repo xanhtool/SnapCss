@@ -16,18 +16,19 @@ export class ProjectChecker {
         this.onFileOpen();
     }
 
-    getInfo() {
-        return vscode.commands.registerCommand('extension.getInfo', () => {
-            console.log("getInfo begin");
-            this.workSpaceTrack();
-        });
-    }
+    // getInfo() {
+    //     return vscode.commands.registerCommand('extension.getInfo', () => {
+    //         console.log("getInfo begin");
+    //         this.isAngular();
+    //     });
+    // }
 
-    workSpaceTrack() {
+    isAngular() {
         const isAngular = vscode.workspace.findFiles('angular.json');
-        if (isAngular) { 
-            console.log("this is angular project", isAngular); 
+        if (isAngular) {
+            // console.log("this is angular project", isAngular);
         }
+        return isAngular;
     }
 
 
@@ -38,14 +39,14 @@ export class ProjectChecker {
             if (this.languageList.includes(event.languageId)) {
                 // console.log("event", language, event);
                 const fileResult = await this.checkAngularFileType(event.fileName);
-                console.log(`onFileopen, we will track this ${language} file, ${fileResult}`);
+                // console.log(`onFileopen, we will track this ${language} file, ${fileResult}`);
             } else {
                 // console.log(`Ops, ${language} file should not track`);
             }
         });
     }
 
-    private resultGenerator(fileName: string, type: string = 'basicStyle', selector: any = null, message = '') {
+    resultGenerator(fileName: string, type: string = 'basicStyle', selector: any = null, message = '') {
         return {
             fileName,
             type: type,
@@ -55,14 +56,19 @@ export class ProjectChecker {
     }
 
     async checkAngularFileType(fileName: string) {
-        const componentOrDirective = fileName.includes('.component.') || fileName.includes('.directive.');
-        if (componentOrDirective) {
-            return await this.selectorParser(fileName);
-        } else {
-            return await this.resultGenerator(fileName);
+        try {
+            const componentOrDirective = fileName.includes('.component.') || fileName.includes('.directive.');
+            if (componentOrDirective) {
+                return await this.selectorParser(fileName);
+            } else {
+                return await this.resultGenerator(fileName);
+            }
+        } catch (error) {
+            console.error(`error while read angularfile ${error}`, error);
+            return;
         }
 
-        
+
     }
 
     private async selectorParser(fileName: string) {

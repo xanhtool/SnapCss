@@ -22,7 +22,8 @@ export class FileWatcher {
     }
 
     trackingUserInput() {
-        console.log("trakingUserInput begin");
+        console.log("trakingUserInput begin", !!this.editor);
+        // console.log('Snap Style sending data:', !!this.editor);
         this.editor = vscode.window.activeTextEditor;
         vscode.workspace.onDidChangeTextDocument((event) => this.listener$.next(event));
     }
@@ -53,12 +54,21 @@ export class FileWatcher {
     // }
 
     async prepareDataToSend(document: vscode.TextDocument) {
-        console.log('Snap Style sending data:', !!this.editor);
+        // console.log('Snap Style sending data:', !!this.editor);
         if (!this.editor) { return; }
         const fileNameFull = path.basename(document.fileName);
         const fileName = fileNameFull.split('.')[0];
         const textAll = document.getText();
-        const selectorResult = await this.projectChecker.checkAngularFileType(document.fileName);
+        const isAngular = this.projectChecker.isAngular();
+        let selectorResult;
+        if (isAngular) {
+            selectorResult = await this.projectChecker.checkAngularFileType(document.fileName);
+        } else {
+            selectorResult = await this.projectChecker.resultGenerator(document.fileName);
+        }
+
+        if (!selectorResult) { return; }
+
         const angularAtribute = await this.serverListener.requestAngularAtribute(selectorResult);
         let styleData;
         let styleMixedText;
@@ -66,8 +76,9 @@ export class FileWatcher {
         try {
             styleData = await this.styleCompier.complieSass(textAll);
             styleMixedText = this.prefixer.prefixCssSelectors(styleData.text, selector);
+            if (!styleMixedText) { return; }
         } catch (error) {
-            console.error(error);
+            console.error('error while complie sass', error);
             return;
         }
         this.emitDataToChrome(fileName, selectorResult, selector, angularAtribute, styleMixedText, styleData);

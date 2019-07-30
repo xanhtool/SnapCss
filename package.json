@@ -37,8 +37,10 @@
 		]
 	},
 	"scripts": {
+		"install-version": "node install-version",
 		"package": "npx vsce package",
 		"publish": "npx vsce publish",
+		"publish:patch": "vsce publish patch",
 		"vscode:prepublish": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --mode production",
 		"compile": "webpack --mode none",
 		"watch": "webpack --mode none --watch",

@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
+## [0.0.4] - 2017-07-30
+### Fixed
+- project error crash.
+
 ## [0.0.3] - 2017-07-27
 ### Added
 - project now allow multi workspace Snap Style enable.

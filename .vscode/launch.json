@@ -17,7 +17,7 @@
 			"outFiles": [
 				"${workspaceFolder}/dist/**/*.js"
 			],
-			"preLaunchTask": "npm: test-compile"
+			"preLaunchTask": "npm: compile"
 		},
 		{
 			"name": "Extension Tests",

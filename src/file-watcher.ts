@@ -74,7 +74,9 @@ export class FileWatcher {
         let styleMixedText;
         const selector = angularAtribute ? `${selectorResult.selector}[${angularAtribute}]` : selectorResult.selector;
         try {
-            styleData = await this.styleCompier.complieSass(textAll);
+            // styleData = await this.styleCompier.complieSass(textAll);
+
+            styleData = this.styleCompier.complieNodeSass(textAll);
             styleMixedText = this.prefixer.prefixCssSelectors(styleData.text, selector);
             if (!styleMixedText) { return; }
         } catch (error) {
@@ -84,17 +86,19 @@ export class FileWatcher {
         this.emitDataToChrome(fileName, selectorResult, selector, angularAtribute, styleMixedText, styleData);
     }
 
-    emitDataToChrome(fileName: string, selectorResult: SelectorResult, selector: any, angularAtribute: string | null | undefined, styleMixedText: string, styleData: StyleResult) {
-        // console.log("complie text result: ", selectorResult, angularAtribute, selector, styleMixedText);
+    emitDataToChrome(fileName: string, selectorResult: SelectorResult, selector: any, angularAtribute: string | null | undefined, styleMixedText: string, styleData: any) {
         const modifyDate = Date.now();
-        this.serverListener.io.emit('message', {
+        const message = {
             data: styleMixedText,
             styleData,
             selector,
             selectorResult,
             fileName: fileName,
             modifyDate: fileName + '-' + modifyDate,
-        });
+        };
+
+        console.log("payload", message);
+        this.serverListener.io.emit('message', message);
     }
 
 

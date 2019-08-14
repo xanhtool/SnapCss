@@ -14,6 +14,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+
+## [0.0.6] - 2017-08-14
+### Fixed
+- project error crash 3: 
+CHANGED: using node-sass instead of sass.js, that can improve performance and avoid extension conflict error
+
+
+## [0.0.5] - 2017-07-30
+### Fixed
+- project error crash 2
+
+
 ## [0.0.4] - 2017-07-30
 ### Fixed
 - project error crash.

@@ -10,6 +10,7 @@ Realtime editing style in a snap!
 you need install for this plugin to work with:
 - Chrome Browser [HERE](https://www.google.com/chrome/) 
 - My chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh)
+- Visual Studio Code minimum version is: [1.37](https://code.visualstudio.com/updates/v1_37) to avoid extension conflict [#2](https://github.com/xanhtool/snap-style-vscode/issues/2)
 
 ## Install
 1. Open Extensions sideBar panel in Visual Studio Code. View → Extensions
@@ -56,6 +57,7 @@ This extension contributes the following settings:
 `GET http://localhost:1995/socket.io/?EIO=3&transport=polling&t=MmnbD6d net::ERR_CONNECTION_REFUSED` ???
 
 - answer: Because you not open VSCode editor. You just open it and it will shutup or disable Snap Style chrome plugin.
+
 
 ## Release Notes
 

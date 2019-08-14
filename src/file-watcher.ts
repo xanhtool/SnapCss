@@ -74,9 +74,9 @@ export class FileWatcher {
         let styleMixedText;
         const selector = angularAtribute ? `${selectorResult.selector}[${angularAtribute}]` : selectorResult.selector;
         try {
-            // styleData = await this.styleCompier.complieSass(textAll);
+            styleData = await this.styleCompier.complieSass(textAll);
+            // styleData = this.styleCompier.complieNodeSass(textAll);
 
-            styleData = this.styleCompier.complieNodeSass(textAll);
             styleMixedText = this.prefixer.prefixCssSelectors(styleData.text, selector);
             if (!styleMixedText) { return; }
         } catch (error) {

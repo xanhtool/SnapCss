@@ -74,9 +74,10 @@ export class FileWatcher {
         let styleMixedText;
         const selector = angularAtribute ? `${selectorResult.selector}[${angularAtribute}]` : selectorResult.selector;
         try {
-            styleData = await this.styleCompier.complieSass(textAll);
+            // styleData = await this.styleCompier.complieSass(textAll);
             // styleData = this.styleCompier.complieNodeSass(textAll);
-
+            styleData = await this.styleCompier.complie(textAll);
+            // console.log("style data", styleData);
             styleMixedText = this.prefixer.prefixCssSelectors(styleData.text, selector);
             if (!styleMixedText) { return; }
         } catch (error) {
@@ -98,7 +99,7 @@ export class FileWatcher {
         };
 
         console.log("payload", message);
-        this.serverListener.io.emit('message', message);
+        if (this.serverListener && this.serverListener.io) {this.serverListener.io.emit('message', message);}
     }
 
 

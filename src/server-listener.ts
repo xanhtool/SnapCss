@@ -1,23 +1,27 @@
 
-import * as socketio from "socket.io";
+import socketio from "socket.io";
 import * as http from 'http';
-import * as express from 'express';
-import * as cors from 'cors';
+import express from 'express';
+import cors from 'cors';
 import { SelectorResult } from "./project-checker";
 import * as vscode from 'vscode';
 export class ServerListener {
     app: any;
-    io: socketio.Server;
-    server: http.Server;
+    io: socketio.Server | undefined;
+    server: http.Server | undefined;
     currentSocket: socketio.Socket | undefined;
     constructor() {
-        this.app = express();
-        this.app.use(cors());
-        this.server = new http.Server(this.app);
-        this.io = socketio(this.server, { serveClient: false });
-        this.socketOnConnection();
-        this.startServer();
-        this.projectHomePath();
+        try {
+            this.app = express();
+            this.app.use(cors());
+            this.server = new http.Server(this.app);
+            this.io = socketio(this.server, { serveClient: false });
+            this.socketOnConnection();
+            this.startServer();
+            this.projectHomePath();
+        } catch (error) {
+            console.error('server listener error', error);
+        }
     }
 
     projectHomePath() {
@@ -30,7 +34,7 @@ export class ServerListener {
     }
 
     socketOnConnection() {
-          this.io.on("connection", (socket: socketio.Socket) => {
+        if (this.io) {this.io.on("connection", (socket: socketio.Socket) => {
             this.currentSocket = socket;
             // console.log("a user connected", socket);
             // socket.on("message", (message: any) => {
@@ -38,11 +42,11 @@ export class ServerListener {
             //     // echo the message back down the websocket connection
             //     socket.emit("message", 'Server:' + message);
             // });
-        });
+        });}
     }
 
     startServer(port = 1995) {
-        this.server.listen(port).on('error', (error:{errno:string, code:any, syscall:any, address:any, port:any}) => {
+        if (this.server) {this.server.listen(port).on('error', (error: { errno: string, code: any, syscall: any, address: any, port: any }) => {
             if (error.errno === 'EADDRINUSE') {
                 console.log(`[${error.errno}] port ${error.port} is busy`);
                 this.startServer(port + 1);
@@ -50,9 +54,9 @@ export class ServerListener {
                 console.log('server error', error);
             }
         })
-        .on('listening',() => {
-            console.log('Snap Style magic happen ^_^ on port:', port);
-        });
+            .on('listening', () => {
+                console.log('Snap Style magic happen ^_^ on port:', port);
+            });}
     }
 
 

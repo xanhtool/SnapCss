@@ -23,6 +23,10 @@
 		"url": "https://github.com/xanhtool/snap-style-vscode/issues",
 		"email": "hiepxanh@gmail.com"
 	},
+	"build": {
+		"buildDependenciesFromSource": "true",
+		"npmRebuild": "false"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/xanhtool/snap-style-vscode.git"
@@ -48,16 +52,13 @@
 		"tsc-watch": "tsc -watch -p ./",
 		"just-test": "node node_modules/vscode/bin/test",
 		"test-compile": "npm run tsc-compile && npm run compile",
-		"test": "npm run test-compile && node node_modules/vscode/bin/test",
-		"postinstall": "node node_modules/vscode/bin/install"
+		"test": "npm run test-compile && node node_modules/vscode/bin/test"
 	},
 	"dependencies": {
 		"connect": "^3.7.0",
 		"cors": "latest",
 		"express": "^4.17.1",
-		"node-sass": "^4.12.0",
 		"rxjs": "^6.5.2",
-		"sass.js": "^0.11.0",
 		"socket.io": "^2.2.0",
 		"socket.io-client": "^2.2.0"
 	},
@@ -67,12 +68,13 @@
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^5.2.6",
 		"@types/node": "^10.12.21",
-		"@types/node-sass": "^4.11.0",
 		"@types/socket.io": "^2.1.2",
 		"@types/socket.io-client": "^1.4.32",
 		"@types/vscode": "^1.36.0",
 		"glob": "^7.1.4",
 		"mocha": "^6.1.4",
+		"postcss": "^7.0.17",
+		"precss": "^4.0.0",
 		"ts-loader": "^6.0.4",
 		"tslint": "^5.12.1",
 		"typescript": "^3.5.3",

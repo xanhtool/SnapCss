@@ -10,14 +10,11 @@ Realtime editing style in a snap!
 you need install for this plugin to work with:
 - Chrome Browser [HERE](https://www.google.com/chrome/) 
 - My chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh)
-- Visual Studio Code minimum version is: [1.37](https://code.visualstudio.com/updates/v1_37) to avoid extension conflict [#2](https://github.com/xanhtool/snap-style-vscode/issues/2)
 
 ## Install
 1. Open Extensions sideBar panel in Visual Studio Code. View → Extensions
-2. Search for Snap Style
-3. Click Install
-4. Click Reload, if required
-5. install chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh) if you not install yet
+2. Search for `Snap Style` then Click Install, Click Reload, if required
+3. install chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh) if you not install yet
 
 ## Features
 
@@ -56,16 +53,15 @@ This extension contributes the following settings:
 > why my Console in Chrome browser keep yelling Error:
 `GET http://localhost:1995/socket.io/?EIO=3&transport=polling&t=MmnbD6d net::ERR_CONNECTION_REFUSED` ???
 
-- answer: Because you not open VSCode editor. You just open it and it will shutup or disable Snap Style chrome plugin.
-
-
+- answer: Because you not open VSCode editor. You just open it and it will shut up or disable Snap Style chrome plugin.
+- Still notworking if have @import() or ::ng-deep
 ## Release Notes
 
 <!-- Users appreciate release notes as you update your extension. -->
-## [0.0.6] - 2017-08-14
+## [0.0.8] - 2019-08-15
 ### Fixed
 - project error crash 3: 
-CHANGED: using node-sass instead of sass.js, that can improve performance and avoid extension conflict error
+CHANGED: change from sass.js to PostCss. Start working normally
 
 ## Feature Implement Process
 

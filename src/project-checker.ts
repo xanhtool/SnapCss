@@ -13,7 +13,7 @@ export class ProjectChecker {
     constructor(
         // public serverListener: ServerListener
     ) {
-        this.onFileOpen();
+        // this.onFileOpen();
     }
 
     // getInfo() {

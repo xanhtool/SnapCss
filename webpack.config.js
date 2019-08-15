@@ -26,10 +26,15 @@ const config = {
   },
   resolve: {
     // support reading TypeScript and JavaScript files, 📖 -> https://github.com/TypeStrong/ts-loader
-    extensions: ['.ts', '.js']
+    extensions: ['.ts','.mjs', '.js']
   },
   module: {
     rules: [
+      {
+         test: /\.mjs$/,
+         include: /node_modules/,
+         type: 'javascript/auto'
+       },
       {
         test: /\.ts$/,
         exclude: /node_modules/,

@@ -3,7 +3,7 @@
 	"displayName": "Snap Style",
 	"publisher": "hiepxanh",
 	"description": "Realtime editing style in a snap!",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"engines": {
 		"vscode": "^1.36.0"
 	},

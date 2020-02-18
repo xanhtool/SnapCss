@@ -58,6 +58,11 @@ This extension contributes the following settings:
 ## Release Notes
 
 <!-- Users appreciate release notes as you update your extension. -->
+## [0.0.9] - 2020-02-18
+### Fixed
+- Project work perfect, dont know why it not crash anymore.
+Enable tracking by default
+
 ## [0.0.8] - 2019-08-15
 ### Fixed
 - project error crash 3: 

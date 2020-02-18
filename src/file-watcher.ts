@@ -19,6 +19,7 @@ export class FileWatcher {
         public styleCompier: StyleCompiler
     ) {
         this.startListener();
+        this.trackingUserInput();
     }
 
     trackingUserInput() {

@@ -3,7 +3,7 @@
 	"displayName": "Snap Style",
 	"publisher": "hiepxanh",
 	"description": "Realtime editing style in a snap!",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"engines": {
 		"vscode": "^1.36.0"
 	},
@@ -41,6 +41,7 @@
 		]
 	},
 	"scripts": {
+		"release":"npx vsce package && npx vsce publish",
 		"install-version": "node install-version",
 		"package": "npx vsce package",
 		"publish": "npx vsce publish",

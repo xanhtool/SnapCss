@@ -24,7 +24,7 @@ export class FileWatcher {
 
     trackingUserInput() {
         console.log("trakingUserInput begin", !!this.editor);
-        // console.log('Snap Style sending data:', !!this.editor);
+        // console.log('SnapCss sending data:', !!this.editor);
         this.editor = vscode.window.activeTextEditor;
         vscode.workspace.onDidChangeTextDocument((event) => this.listener$.next(event));
     }
@@ -55,7 +55,7 @@ export class FileWatcher {
     // }
 
     async prepareDataToSend(document: vscode.TextDocument) {
-        // console.log('Snap Style sending data:', !!this.editor);
+        // console.log('SnapCss sending data:', !!this.editor);
         if (!this.editor) { return; }
         const fileNameFull = path.basename(document.fileName);
         const fileName = fileNameFull.split('.')[0];

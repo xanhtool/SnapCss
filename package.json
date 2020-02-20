@@ -1,6 +1,6 @@
 {
-	"name": "snap-style",
-	"displayName": "Snap Style",
+	"name": "SnapCss",
+	"displayName": "SnapCss",
 	"publisher": "hiepxanh",
 	"description": "Realtime editing style in a snap!",
 	"version": "0.0.9",
@@ -18,9 +18,9 @@
 		"color": "#C80000",
 		"theme": "dark"
 	},
-	"homepage": "https://github.com/xanhtool/snap-style-vscode/blob/master/README.md",
+	"homepage": "https://github.com/xanhtool/SnapCss/blob/master/README.md",
 	"bugs": {
-		"url": "https://github.com/xanhtool/snap-style-vscode/issues",
+		"url": "https://github.com/xanhtool/SnapCss/issues",
 		"email": "hiepxanh@gmail.com"
 	},
 	"build": {
@@ -29,7 +29,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/xanhtool/snap-style-vscode.git"
+		"url": "https://github.com/xanhtool/SnapCss.git"
 	},
 	"main": "./dist/extension.js",
 	"contributes": {

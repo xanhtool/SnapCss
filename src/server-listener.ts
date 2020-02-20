@@ -36,7 +36,7 @@ export class ServerListener {
     socketOnConnection() {
         if (this.io) {this.io.on("connection", (socket: socketio.Socket) => {
             this.currentSocket = socket;
-            // console.log("a user connected", socket);
+            console.log("a user connected", socket);
             // socket.on("message", (message: any) => {
             //     console.log('new message!!!!!!!!!!!!!', message);
             //     // echo the message back down the websocket connection
@@ -55,7 +55,7 @@ export class ServerListener {
             }
         })
             .on('listening', () => {
-                console.log('Snap Style magic happen ^_^ on port:', port);
+                console.log('SnapCss magic happen ^_^ on port:', port);
             });}
     }
 
@@ -84,7 +84,8 @@ export class ServerListener {
                 // console.log("selectorSocket", selectorSocket);
                 return await this.listenForAngularSelectorId();
             } else {
-                console.log("cannot send selector request...");
+                console.log('this.currentSocket', this.currentSocket);
+                console.log("cannot send selector request...", this.currentSocket, checker);
             }
         } else {
             console.log("not request...");

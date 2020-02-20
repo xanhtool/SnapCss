@@ -1,6 +1,6 @@
 
 
-# Snap Style! 
+# SnapCss! 
 
 ![feature X](images/logo-text.png)
 
@@ -13,7 +13,7 @@ you need install for this plugin to work with:
 
 ## Install
 1. Open Extensions sideBar panel in Visual Studio Code. View → Extensions
-2. Search for `Snap Style` then Click Install, Click Reload, if required
+2. Search for `SnapCss` then Click Install, Click Reload, if required
 3. install chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh) if you not install yet
 
 ## Features
@@ -22,14 +22,14 @@ Imagine no more file saving or page reloading just to see how single update affe
 
 No need to waiting for JS framework build time to see your new style apply. Just type your new style and see the magic happen. 
 
-Base on this idea [Livestyle](http://livestyle.io/). I'm writing an extension for VS code and Chrome that can help Angular developer (or frontend developer) can style faster. It call *Snap Style* that can updates CSS in browser immediately, as you type. No more file saving or page reloading just to see how single update affects web page.
+Base on this idea [Livestyle](http://livestyle.io/). I'm writing an extension for VS code and Chrome that can help Angular developer (or frontend developer) can style faster. It call *SnapCss* that can updates CSS in browser immediately, as you type. No more file saving or page reloading just to see how single update affects web page.
 
 
 ![feature X](images/snap-show.gif)
 
 Youtube video click on below image:
 
-[![Snap Style](https://img.youtube.com/vi/t5tsGSFeOK8/0.jpg)](https://www.youtube.com/watch?v=t5tsGSFeOK8 "Snap Style")
+[![SnapCss](https://img.youtube.com/vi/t5tsGSFeOK8/0.jpg)](https://youtu.be/W-hWhR5GX_c "SnapCss")
 <!-- 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
@@ -53,7 +53,7 @@ This extension contributes the following settings:
 > why my Console in Chrome browser keep yelling Error:
 `GET http://localhost:1995/socket.io/?EIO=3&transport=polling&t=MmnbD6d net::ERR_CONNECTION_REFUSED` ???
 
-- answer: Because you not open VSCode editor. You just open it and it will shut up or disable Snap Style chrome plugin.
+- answer: Because you not open VSCode editor. You just open it and it will shut up or disable SnapCss chrome plugin.
 - Still notworking if have @import() or ::ng-deep
 ## Release Notes
 
@@ -71,7 +71,7 @@ CHANGED: change from sass.js to PostCss. Start working normally
 ## Feature Implement Process
 
 - [x] Webpack bundle to make plugin faster.
-- [x] Multi workspace Snap Style editing.
+- [x] Multi workspace SnapCss editing.
 
 ## Framework Implement Process
 
@@ -86,7 +86,7 @@ CHANGED: change from sass.js to PostCss. Start working normally
 - [ ] Wordpress
 
 ## Note
-Give me the feedback, your request framework or new feature in [here](https://github.com/xanhtool/snap-style-vscode/issues) or email me: hiepxanh@gmail.com 
+Give me the feedback, your request framework or new feature in [here](https://github.com/xanhtool/SnapCss/issues) or email me: hiepxanh@gmail.com 
 <!-- -----------------------------------------------------------------------------------------------------------
 
 ## Working with Markdown

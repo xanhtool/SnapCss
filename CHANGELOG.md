@@ -14,6 +14,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [0.1.0] - 2020-02-20
+### Fixed
+- project name change from Snap Style VSCode to SnapCss
+
+## [0.0.9] - 2020-02-18
+### Fixed
+- project update version, testing with new vscode work more stable
+
 ## [0.0.8] - 2019-08-15
 ### Fixed
 - project error crash 3: 
@@ -41,7 +49,7 @@ CHANGED: using node-sass instead of sass.js, that can improve performance and av
 
 ## [0.0.3] - 2019-07-27
 ### Added
-- project now allow multi workspace Snap Style enable.
+- project now allow multi workspace SnapCss enable.
 
 ## [0.0.2] - 2019-07-26
 ### Changed
@@ -49,7 +57,7 @@ CHANGED: using node-sass instead of sass.js, that can improve performance and av
 
 ## [0.0.1] - 2019-07-26
 ### Added
-Initial release of Snap Style
+Initial release of SnapCss
 -  everytime open file, add selector to fileLibrary. 
 -  get file extension and it's selector.
 -  if have selector add selector to style data.

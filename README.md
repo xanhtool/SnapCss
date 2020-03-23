@@ -6,6 +6,8 @@
 
 Realtime editing style in a snap!
 
+Idea behind, there is `_nghost-${COMPONENT_VARIABLE}` in every component in Angular. I Create websocket that listen to the chrome extension, the chrome seek `COMPONENT_VARIABLE` then send it to `vscode`. After that, vscode mix it that component variable with style and send it to chrome extension. then it will update it.
+
 ## Requirements
 you need install for this plugin to work with:
 - Chrome Browser [HERE](https://www.google.com/chrome/) 

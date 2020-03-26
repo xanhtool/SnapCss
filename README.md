@@ -1,12 +1,16 @@
 
 
 # SnapCss! 
-
 ![feature X](images/logo-text.png)
-[video demo](https://studio.youtube.com/video/W-hWhR5GX_c/edit)
-[chrome extension link](https://github.com/xanhtool/SnapCss)
-[vscode extension link](https://marketplace.visualstudio.com/items?itemName=hiepxanh.SnapCss)
 Realtime editing style in a snap! 
+
+Link:
+[video demo](https://studio.youtube.com/video/W-hWhR5GX_c/edit)
+
+[chrome extension link](https://github.com/xanhtool/SnapCss)
+
+[vscode extension link](https://marketplace.visualstudio.com/items?itemName=hiepxanh.SnapCss)
+
 
 Idea behind, there is `_nghost-${COMPONENT_VARIABLE}` in every component in Angular. I Create websocket that listen to the chrome extension, the chrome seek `COMPONENT_VARIABLE` then send it to `vscode`. After that, vscode mix it that component variable with style and send it to chrome extension. then it will update it.
 

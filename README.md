@@ -7,7 +7,7 @@ Realtime editing style in a snap!
 Link:
 [video demo](https://studio.youtube.com/video/W-hWhR5GX_c/edit)
 
-[chrome extension link](https://github.com/xanhtool/SnapCss)
+[chrome extension link](https://chrome.google.com/webstore/detail/snapcss/fdehldbleadjkgomndkhnciddeiohjmf)
 
 [vscode extension link](https://marketplace.visualstudio.com/items?itemName=hiepxanh.SnapCss)
 
@@ -17,7 +17,7 @@ Idea behind, there is `_nghost-${COMPONENT_VARIABLE}` in every component in Angu
 ## Requirements
 you need install for this plugin to work with:
 - Chrome Browser [HERE](https://www.google.com/chrome/) 
-- My chrome extension [HERE](https://chrome.google.com/webstore/detail/banpiopiepkejkfomncchpdokpnaejnh)
+- My chrome extension [HERE](https://chrome.google.com/webstore/detail/snapcss/fdehldbleadjkgomndkhnciddeiohjmf)
 
 ## Install
 1. Open Extensions sideBar panel in Visual Studio Code. View → Extensions

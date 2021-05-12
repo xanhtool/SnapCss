@@ -74,7 +74,7 @@
 		"@types/vscode": "^1.36.0",
 		"glob": "^7.1.4",
 		"mocha": "^6.1.4",
-		"postcss": "^7.0.17",
+		"postcss": "^8.2.10",
 		"precss": "^4.0.0",
 		"ts-loader": "^6.0.4",
 		"tslint": "^5.12.1",
